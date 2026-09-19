@@ -1,0 +1,560 @@
+/* ==========================================================================
+   MAHARAJ ESTATES & INFRA - HORIZONTAL LUXURY HEADER BAR & HERO
+   ========================================================================== */
+
+:root {
+    --primary-navy: #07111e;
+    --navy-header-transparent: rgba(7, 17, 30, 0.75);
+    --navy-header-solid: rgba(7, 17, 30, 0.96);
+    
+    --gold-primary: #c5a059;
+    --gold-bright: #e5c158;
+    --gold-gradient: linear-gradient(135deg, #f0cf6e 0%, #c5a059 50%, #997734 100%);
+    
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.75);
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font-body);
+    background-color: var(--primary-navy);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. HORIZONTAL LUXURY HEADER BAR (NO FLOATING PILL / NO HEAVY CARD)
+   ========================================================================== */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    z-index: 1000;
+    background: var(--navy-header-transparent);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+}
+
+.site-header.scrolled {
+    background: var(--navy-header-solid);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Logo */
+.brand-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    transition: var(--transition);
+}
+
+/* Center Navigation Links */
+.center-nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    padding: 6px 0;
+    transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffffff;
+}
+
+/* Subtle Gold Underline for Active Page */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold-bright);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Right Side Actions */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.header-phone {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.header-phone i {
+    color: var(--gold-primary);
+    font-size: 0.85rem;
+}
+
+.header-phone:hover {
+    color: var(--gold-bright);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Compact Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 26px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+}
+
+.btn-gold {
+    background: var(--gold-gradient);
+    color: #07111e;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+}
+
+.btn-outline-white {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline-white:hover {
+    background: #ffffff;
+    color: var(--primary-navy);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 9px 20px;
+    font-size: 0.82rem;
+    border-radius: var(--radius-sm);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ==========================================================================
+   2. HERO SECTION & ENTRANCE ANIMATION (UNTOUCHED / KEPT PRESERVED)
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background Image Slider */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out, transform 6s ease-out;
+    transform: scale(1.03);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Subtle Left Overlay */
+.hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+        to right,
+        rgba(7, 17, 30, 0.82) 0%,
+        rgba(7, 17, 30, 0.55) 45%,
+        rgba(7, 17, 30, 0.15) 80%,
+        rgba(7, 17, 30, 0.05) 100%
+    );
+}
+
+/* Hero Content Container */
+.hero-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text-content {
+    max-width: 620px;
+    padding-top: 40px;
+}
+
+/* Staggered Hero Fade-Up Animations */
+@keyframes heroFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    opacity: 0;
+    animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.45s; }
+.delay-3 { animation-delay: 0.75s; }
+.delay-4 { animation-delay: 1.05s; }
+
+.hero-subtext {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--gold-bright);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Dynamic Animated Subtitle Line */
+.dynamic-tagline-wrapper {
+    height: 32px;
+    overflow: hidden;
+    margin-bottom: 36px;
+}
+
+.dynamic-tagline {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 32px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+.dynamic-tagline.fade-out {
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+.dynamic-tagline.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CTA Buttons */
+.hero-cta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ==========================================================================
+   3. MODAL & TOAST STYLING
+   ========================================================================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(7, 17, 30, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.modal-card {
+    position: relative;
+    z-index: 2001;
+    background: #0a1628;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    border-radius: var(--radius-md);
+    width: 90%;
+    max-width: 440px;
+    padding: 32px;
+    color: #ffffff;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.modal-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+    color: var(--gold-bright);
+}
+
+.modal-header p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.modal-form .form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-form label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.form-input, .form-select {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.form-select option {
+    background: #0a1628;
+    color: #ffffff;
+}
+
+.form-input:focus, .form-select:focus {
+    border-color: var(--gold-primary);
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0a1628;
+    color: #ffffff;
+    border: 1px solid var(--gold-primary);
+    padding: 14px 24px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+    z-index: 3000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0 24px;
+    }
+    .center-nav .nav-links {
+        gap: 24px;
+    }
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        height: 68px;
+    }
+    .header-container {
+        padding: 0 20px;
+    }
+    .center-nav {
+        position: fixed;
+        top: 68px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 68px);
+        background: rgba(7, 17, 30, 0.98);
+        backdrop-filter: blur(16px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+    .center-nav.active {
+        left: 0;
+    }
+    .center-nav .nav-links {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+    }
+    .center-nav .nav-link {
+        font-size: 1.2rem;
+    }
+    .header-phone {
+        display: none;
+    }
+    .mobile-menu-btn {
+        display: block;
+    }
+    .hero-container {
+        padding: 0 20px;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .dynamic-tagline {
+        font-size: 1rem;
+    }
+    .hero-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .hero-cta-buttons .btn {
+        width: 100%;
+    }
+}
